@@ -10,7 +10,11 @@ This is a monorepo containing:
 ## Installation
 
 cd suleiman-zhukov-technical-assignment
+
 cd app && npm i && npm run start:dev
+
 cd ../order-service && npm i && npm run start:dev
+
 cd ../product-service && npm i && npm run start:dev
+
 cd ../frontend && npm i && npm run dev
