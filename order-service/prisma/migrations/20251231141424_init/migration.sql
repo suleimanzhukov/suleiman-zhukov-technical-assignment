@@ -1,0 +1,5 @@
+-- CreateTable
+CREATE TABLE "Order" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "productId" INTEGER NOT NULL
+);
