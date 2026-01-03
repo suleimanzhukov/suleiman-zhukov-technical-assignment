@@ -9,12 +9,32 @@ This is a monorepo containing:
 
 ## Installation
 
-cd suleiman-zhukov-technical-assignment
+````markdown
+```bash
+# Open four separate terminals and run one block in each
 
-cd app && npm i && npm run start:dev
+# Terminal 1: Main Gateway
+cd suleiman-zhukov-technical-assignment/app
+npm i
+npm run start:dev
 
-cd ../order-service && npm i && npm run start:dev
+# Terminal 2: Order Service
+cd suleiman-zhukov-technical-assignment/order-service
+npm i
+npm run start:dev
 
-cd ../product-service && npm i && npm run start:dev
+# Terminal 3: Product Service
+cd suleiman-zhukov-technical-assignment/product-service
+npm i
+npm run start:dev
 
-cd ../frontend && npm i && npm run dev
+# Terminal 4: Frontend
+cd suleiman-zhukov-technical-assignment/frontend
+npm i
+npm run dev
+```
+````
+
+```
+
+```
