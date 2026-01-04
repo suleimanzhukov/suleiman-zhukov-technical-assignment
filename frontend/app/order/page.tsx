@@ -101,14 +101,12 @@ export default function Order() {
     orderItemsCount: number,
     orderId: number
   ) => {
-    console.log("AAAAAAA#######————#########AAAAAAAAA", count, orderItemsCount);
-    if (!count) return deleteItemMutation.mutate({ id });
     if (!count && orderItemsCount === 1) {
-      console.log("HERE");
       deleteItemMutation.mutate({ id });
       deleteOrderMutation.mutate({ id: orderId });
       return;
     }
+    if (!count) return deleteItemMutation.mutate({ id });
     mutation.mutate({ id, count });
   };
 
