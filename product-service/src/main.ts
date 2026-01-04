@@ -9,7 +9,7 @@ async function bootstrap() {
     {
       transport: Transport.GRPC,
       options: {
-        url: '0.0.0.0:5005',
+        url: 'product-service:5005',
         package: 'product',
         protoPath: join(__dirname, 'product.proto'),
       },

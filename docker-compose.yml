@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  main-gateway:
+    build: ./app
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+      - ORDER_SERVICE_URL=order-service:5002
+      - PRODUCT_SERVICE_URL=product-service:5005
+
+  product-service:
+    build: ./product-service
+    ports:
+      - "5005:5005"
+    environment:
+      - PORT=5005
+    depends_on:
+      - main-gateway
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "5002:5002"
+    environment:
+      - PORT=5002
+      - PRODUCT_SERVICE_URL=product-service:5005
+    depends_on:
+      - main-gateway
+      - product-service
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:3003
+    depends_on:
+      - main-gateway
+      - product-service
+      - order-service

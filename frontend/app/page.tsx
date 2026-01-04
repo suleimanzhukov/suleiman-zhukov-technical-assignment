@@ -72,7 +72,7 @@ export default function Product() {
 
   const handleAddItem = async (id: number) => {
     const orders = await getOrders();
-    if (!!!orders.length) return createOrder({ productId: id, count: 1 });
+    if (!!!orders?.length) return createOrder({ productId: id, count: 1 });
 
     const orderItems = orders.flatMap((order: IOrder) =>
       (order.orderItems || []).map((item) => ({ ...item, orderId: order.id }))
@@ -110,7 +110,7 @@ export default function Product() {
       </Button>
       {!newProduct ? (
         <div className="flex flex-col items-center justify-center w-75 gap-4">
-          {products.length ? (
+          {products?.length ? (
             products.map((item: IProduct) => (
               <ListItem
                 key={`product-${item.id}`}

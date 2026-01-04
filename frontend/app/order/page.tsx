@@ -71,7 +71,7 @@ export default function Order() {
       queryClient.setQueryData(["orders"], (oldOrders: IOrder[]) => {
         if (!oldOrders) return [];
 
-        return oldOrders.map((order) => {
+        return oldOrders.map((order: IOrder) => {
           return {
             ...order,
             orderItems: order.orderItems.filter(
@@ -136,7 +136,7 @@ export default function Order() {
                 <OrderListItem
                   key={`order-item-${item.id}`}
                   id={item.id}
-                  orderItemsCount={order.orderItems.length}
+                  orderItemsCount={order?.orderItems?.length}
                   orderId={item.orderId}
                   name={item.name}
                   description={item.description}
