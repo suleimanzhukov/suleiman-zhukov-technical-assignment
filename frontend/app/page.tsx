@@ -39,13 +39,11 @@ export default function Product() {
 
   const addProduct = useMutation({
     mutationFn: async () => {
-      createProduct({ name, description });
+      return await createProduct({ name, description });
     },
-    onSuccess: () => {
+    onSuccess: (newProduct) => {
       queryClient.setQueryData(["products"], (oldData: IProduct[]) => {
-        return oldData
-          ? [...oldData, { name, description }]
-          : [{ name, description }];
+        return oldData ? [...oldData, newProduct] : [newProduct];
       });
     },
   });
@@ -113,8 +111,8 @@ export default function Product() {
           {products?.length ? (
             products.map((item: IProduct) => (
               <ListItem
-                key={`product-${item.id}`}
-                id={item.id}
+                key={`product-${item?.id}`}
+                id={item?.id}
                 name={item.name}
                 description={item.description}
                 handleAddItem={handleAddItem}
